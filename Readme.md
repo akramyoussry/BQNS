@@ -22,4 +22,6 @@ The "src" folder contains the following source files:
 	- applications.py			: This module is for implementing different applications using the trained model
 	- analysis.py				: This module does all the plots for the performance analysis of the trained models
 
+- Makefile: This is the GNU MAKEFILE that allows running the code easily from any Unix-like system 
+
 In order to run the provided code, run the Makefile in the src folder (run the following command from the terminal: make all). If you want to use our generated datasets, download the zip folder at http:// , and unzip all the contents in the dataset folder. This will include the trained model (those files with extension .mlmodel). If you delete the trained model files and ran the Makefile it will only train the models and generate the results but it will not regenerate the datasets. 
