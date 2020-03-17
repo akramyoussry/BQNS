@@ -1,6 +1,6 @@
 # BQNS
 
-This is the implementation of the proposed method in https://arxiv.org/abs/. The implementation is based on Tensorflow 1.12. The "imgs" folder contains all the figures presented in the paper. The datsets folder constains the datasets created and used for generating the results in the paper as well as the trained models. The "notebooks" folder contains a Jupyter notebook as an example on how to use the source code. To make use of parallel processing, all code should be run as python files from the terminal rather than running a notebook.
+This is the implementation of the proposed method in the paper "Beyond Quantum Noise Spectroscopy: modelling and mitigating noise with quantum feature engineering" in https://arxiv.org/abs/2003.06827. The implementation is based on Tensorflow 1.12. The "imgs" folder contains all the figures presented in the paper. The datsets folder constains the datasets created and used for generating the results in the paper as well as the trained models. The "notebooks" folder contains a Jupyter notebook as an example on how to use the source code. To make use of parallel processing, all code should be run as python files from the terminal rather than running a notebook.
  
 The "src" folder contains the following source files:
 
@@ -24,4 +24,4 @@ The "src" folder contains the following source files:
 
 - Makefile: This is the GNU MAKEFILE that allows running the code easily from any Unix-like system 
 
-In order to run the provided code, run the Makefile in the src folder (run the following command from the terminal: make all). If you want to use our generated datasets, download the zip folder at http:// , and unzip all the contents in the dataset folder. This will include the trained model (those files with extension .mlmodel). If you delete the trained model files and ran the Makefile it will only train the models and generate the results but it will not regenerate the datasets. 
+In order to run the provided code, run the Makefile in the src folder (run the following command from the terminal: make all). If you want to use our generated datasets, download the zip folder at https://figshare.com/articles/Beyond_Quantum_Noise_Spectroscopy/11967465 and unzip all the contents in the dataset folder. This will include the trained model (those files with extension .mlmodel). If you delete the trained model files and ran the Makefile it will only train the models and generate the results but it will not regenerate the datasets. 
