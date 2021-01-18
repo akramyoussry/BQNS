@@ -271,9 +271,9 @@ class QuantumMeasurement(layers.Layer):
         final_state = tf.matmul(tf.matmul(Uc, initial_state), Uc, adjoint_b=True )
         
         # calculate the probability of the outcome
-        expectation = tf.trace( tf.matmul( tf.matmul( Vo, final_state), measurement_operator) ) 
+        expectation = tf.linalg.trace( tf.matmul( tf.matmul( Vo, final_state), measurement_operator) ) 
         
-        return tf.squeeze( tf.reshape( tf.real(expectation), temp_shape), axis=-1 )
+        return tf.squeeze( tf.reshape( tf.math.real(expectation), temp_shape), axis=-1 )
 ###############################################################################    
 class GaussCell(layers.Layer):
     """
@@ -418,7 +418,7 @@ class QuantumFidelity(layers.Layer):
         U, V =  x
         
         # calculate the fidelity
-        F = tf.square( tf.abs( tf.trace( tf.matmul(U, V, adjoint_a=True) )) )/(self.d**2)
+        F = tf.square( tf.abs( tf.linalg.trace( tf.matmul(U, V, adjoint_a=True) )) )/(self.d**2)
 
         return F
 ###############################################################################
@@ -763,7 +763,7 @@ class qubitMLmodel():
         """
         
         # first save the ml model
-        self.model.save(filename+"_model.h5")
+        self.model.save_weights(filename+"_model.h5")
         
         # second, save all other variables
         data = {'training_history':self.training_history, 
@@ -795,17 +795,17 @@ class qubitMLmodel():
         f.close()
         
         # first load the ml model
-        self.model.load_weights("./../datasets/"+filename+"_model.h5")
+        self.model.load_weights(filename+"_model.h5")
 
                 
         # second, load all other variables
-        f = open("./../datasets/"+filename+"_class.h5", 'rb')
+        f = open(filename+"_class.h5", 'rb')
         data = pickle.load(f)
         f.close()          
         self.training_history  = data['training_history']
         self.val_history       = data['val_history']
 
         # now delete all the tmp files
-        os.remove("./../datasets/"+filename+"_model.h5")
-        os.remove("./../datasets/"+filename+"_class.h5")
+        os.remove(filename+"_model.h5")
+        os.remove(filename+"_class.h5")
 ###############################################################################
