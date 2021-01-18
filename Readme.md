@@ -1,6 +1,6 @@
 # BQNS
 
-This is the implementation of the proposed method in the paper "Beyond Quantum Noise Spectroscopy: modelling and mitigating noise with quantum feature engineering" in https://arxiv.org/abs/2003.06827. The implementation is based on Tensorflow 2.3. The "imgs" folder contains all the figures presented in the paper. The datsets folder constains the datasets created and used for generating the results in the paper as well as the trained models. The "notebooks" folder contains a Jupyter notebook as an example on how to use the source code. To make use of parallel processing, all code should be run as python files from the terminal rather than running a notebook.
+This is the implementation of the proposed method in the paper "Characterization and control of open quantum systems beyond quantum noise spectroscopy" in https://doi.org/10.1038/s41534-020-00332-8. The implementation is based on Tensorflow 2.3. The "imgs" folder contains all the figures presented in the paper. The datsets folder constains the datasets created and used for generating the results in the paper as well as the trained models. The "notebooks" folder contains a Jupyter notebook as an example on how to use the source code. To make use of parallel processing, all code should be run as python files from the terminal rather than running a notebook.
  
 The "src" folder contains the following source files:
 
