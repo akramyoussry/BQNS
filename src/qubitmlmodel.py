@@ -406,7 +406,7 @@ class QuantumFidelity(layers.Layer):
         U, V =  x
         
         # calculate the fidelity
-        F = tf.square( tf.abs( tf.trace(tf.matmul(U, V, adjoint_a=True))  / tf.sqrt( tf.trace(tf.matmul(U,U, adjoint_a=True)) * tf.trace( tf.matmul(V,V, adjoint_a=True)) ) ))
+        F = tf.square( tf.abs( tf.linalg.trace(tf.matmul(U, V, adjoint_a=True))  / tf.sqrt( tf.linalg.trace(tf.matmul(U,U, adjoint_a=True)) * tf..linalg.trace( tf.matmul(V,V, adjoint_a=True)) ) ))
 
         return F
 ###############################################################################
