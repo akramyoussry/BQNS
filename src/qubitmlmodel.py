@@ -394,19 +394,7 @@ class QuantumFidelity(layers.Layer):
         """   
         # we must call thus function for any tensorflow custom layer
         super(QuantumFidelity, self).__init__(**kwargs)
-     
-    def build(self,input_shape):     
-        """
-        This method must be defined for any custom layer, here you define the training parameters.
-        
-        input_shape: a tensor that automatically captures the dimensions of the input by tensorflow. 
-        """ 
-        
-        self.d = input_shape[0].as_list()[-1]
-
-        # this has to be called for any tensorflow custom layer
-        super(QuantumFidelity, self).build(input_shape)   
-    
+	
     def call(self, x): 
         """
         This method must be defined for any custom layer, it is where the calculations are done.   
@@ -418,7 +406,7 @@ class QuantumFidelity(layers.Layer):
         U, V =  x
         
         # calculate the fidelity
-        F = tf.square( tf.abs( tf.linalg.trace( tf.matmul(U, V, adjoint_a=True) )) )/(self.d**2)
+        F = tf.square( tf.abs( tf.trace(tf.matmul(U, V, adjoint_a=True))  / tf.sqrt( tf.trace(tf.matmul(U,U, adjoint_a=True)) * tf.trace( tf.matmul(V,V, adjoint_a=True)) ) ))
 
         return F
 ###############################################################################
